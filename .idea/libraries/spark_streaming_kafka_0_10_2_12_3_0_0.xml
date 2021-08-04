@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="spark-streaming-kafka-0-10_2.12-3.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/spark-core/src/main/resources/spark-streaming-kafka-0-10_2.12-3.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
