@@ -2,7 +2,7 @@ package com.xjn.bigdata.spark.streaming
 
 import org.apache.kafka.clients.consumer.{ConsumerConfig, ConsumerRecord}
 import org.apache.spark.SparkConf
-import org.apache.spark.streaming.dstream.{InputDStream, ReceiverInputDStream}
+import org.apache.spark.streaming.dstream.{DStream, InputDStream, ReceiverInputDStream}
 import org.apache.spark.streaming.kafka010.{ConsumerStrategies, KafkaUtils, LocationStrategies}
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 
@@ -21,7 +21,7 @@ object SparkStreaming04_updatestatebykey {
     streamContext.checkpoint("check")
 
     val datastream: ReceiverInputDStream[String] = streamContext.socketTextStream("localhost", 9999)
-
+    
     //此处是无状态数据操作，只对当前的采集周期内的数据进行处理，因为reduceByKey
     //datastream.map((_,1)).reduceByKey(_+_).print()
 
