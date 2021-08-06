@@ -26,7 +26,7 @@ object SparkStreamingProject02_ClickNum {
     val kafkaPara: Map[String, Object] = Map[String, Object](
       ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG ->
         "hadoop102:9092,hadoop103:9092,hadoop104:9092",
-      ConsumerConfig.GROUP_ID_CONFIG -> "atguigu",
+      ConsumerConfig.GROUP_ID_CONFIG -> "atguiguNew",
       "key.deserializer" ->
         "org.apache.kafka.common.serialization.StringDeserializer",
       "value.deserializer" ->
@@ -36,7 +36,7 @@ object SparkStreamingProject02_ClickNum {
     val kafkaDStream: InputDStream[ConsumerRecord[String, String]] =
       KafkaUtils.createDirectStream[String, String](streamContext,
         LocationStrategies.PreferConsistent,
-        ConsumerStrategies.Subscribe[String, String](Set("atguigu"), kafkaPara))
+        ConsumerStrategies.Subscribe[String, String](Set("atguiguNew"), kafkaPara))
 
     val clickdata: DStream[AdClickData] = kafkaDStream.map(
       data => {

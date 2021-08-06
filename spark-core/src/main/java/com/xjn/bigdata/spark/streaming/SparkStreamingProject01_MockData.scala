@@ -47,7 +47,7 @@ object SparkStreamingProject01_MockData {
     val list = ListBuffer[String]()
     val listArea = ListBuffer[String]("华东","华北","华南")
     val listCity = ListBuffer[String]("北京","上海","深圳","杭州")
-    for (i <- 1 to 30) {
+    for (i <- 1 to new Random().nextInt(50)) {
       val area = listArea(new Random().nextInt(3))
       val city = listCity(new Random().nextInt(4))
       val userid = new Random().nextInt(6)+1
